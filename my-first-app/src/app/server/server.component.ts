@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-server',
-    templateUrl: './server.component.html'
+    templateUrl: './server.component.html',
+    styles: [`
+        .online {
+            color: white;
+        }
+    `]
 })
 export class ServerComponent {
     // The added types are not required in TypeScript, as they can be inferred from the value. We added them for demo purposes only
