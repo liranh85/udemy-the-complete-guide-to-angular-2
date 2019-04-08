@@ -10,4 +10,24 @@
       </ol>
     </div>
   </div>
+
+  <button
+    class="btn btn-primary"
+    (click)="onClickButton($event)"
+  >
+    Display Details
+  </button>
+  <span *ngIf="isTextEnabled">Secret Password = tuna</span>
+  <ol>
+    <li
+      *ngFor="let click of buttonClicks; index as i"
+      [ngStyle]="{
+        backgroundColor: i >= 4 && 'blue',
+        listStylePosition: 'inside'
+      }"
+      [ngClass]="i >= 4 && 'white'"
+    >
+      {{ click }}
+    </li>
+  </ol>
 </div>
