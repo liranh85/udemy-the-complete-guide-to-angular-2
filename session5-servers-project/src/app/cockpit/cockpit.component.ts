@@ -13,6 +13,7 @@ export class CockpitComponent implements OnInit {
   // newServerName = '';
   // The following allows us to get a reference to an element in the template, if it has a local reference defined as an attribute
   @ViewChild('serverContentInput') serverContentInput: ElementRef;
+  // There is also @ContentChild - for refs placed on the children passed to the component
   // newServerContent = '';
 
   constructor() { }
