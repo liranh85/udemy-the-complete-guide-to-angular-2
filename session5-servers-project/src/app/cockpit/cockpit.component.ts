@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -11,7 +11,9 @@ export class CockpitComponent implements OnInit {
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();;
   // No longer needed now that we're using a local reference in the template and thus are able to pass the input to the method, to read its value.
   // newServerName = '';
-  newServerContent = '';
+  // The following allows us to get a reference to an element in the template, if it has a local reference defined as an attribute
+  @ViewChild('serverContentInput') serverContentInput: ElementRef;
+  // newServerContent = '';
 
   constructor() { }
 
@@ -21,14 +23,14 @@ export class CockpitComponent implements OnInit {
   onAddServer(nameInput) {
     this.serverCreated.emit({
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
   onAddBlueprint(nameInput) {
     this.blueprintCreated.emit({
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 

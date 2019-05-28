@@ -10,7 +10,13 @@
       #serverNameInput
     >
     <label>Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent">
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+    <!-- We're again using a ref instead of two-way data-binding, but this time we're going to access the ref from the Component Controller, using `@ViewChild` -->
+    <input
+      type="text"
+      class="form-control"
+      #serverContentInput
+    >
     <br>
     <!-- The aforementioned local reference (`serverNameInput`) is then available to us to use throughout the template -->
     <button
