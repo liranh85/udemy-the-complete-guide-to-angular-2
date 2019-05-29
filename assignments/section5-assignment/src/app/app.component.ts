@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  gameElementsCount = 0;
+
+  onNext(count: number) {
+    console.log('Next event received by AppComponent. Count:', count)
+    this.gameElementsCount = count;
+  }
 }
