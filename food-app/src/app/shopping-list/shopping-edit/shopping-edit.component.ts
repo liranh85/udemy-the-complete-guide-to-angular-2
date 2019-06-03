@@ -8,9 +8,9 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
 })
 export class ShoppingEditComponent implements OnInit {
 
-  @Output() formSubmitted = new EventEmitter<Ingredient>();
-  @ViewChild('nameInput') nameInput: ElementRef;
-  @ViewChild('amountInput') amountInput: ElementRef;
+  @Output() ingredientAdded = new EventEmitter<Ingredient>();
+  @ViewChild('nameInput') nameInputRef: ElementRef;
+  @ViewChild('amountInput') amountInputRef: ElementRef;
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class ShoppingEditComponent implements OnInit {
 
   onSubmitForm($event) {
     $event.stopPropagation();
-    this.formSubmitted.emit(new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value));
+    this.ingredientAdded.emit(new Ingredient(this.nameInputRef.nativeElement.value, this.amountInputRef.nativeElement.value));
   }
 
 }
